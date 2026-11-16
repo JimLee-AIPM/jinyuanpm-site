@@ -29,6 +29,26 @@
       "source": "/project-tencent-membership",
       "destination": "/projects.html",
       "permanent": true
+    },
+    {
+      "source": "/project-agents-pro.html",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-agents-pro",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-pixeling.html",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-pixeling",
+      "destination": "/projects.html",
+      "permanent": true
     }
   ]
 }
