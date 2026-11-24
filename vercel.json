@@ -49,6 +49,46 @@
       "source": "/project-pixeling",
       "destination": "/projects.html",
       "permanent": true
+    },
+    {
+      "source": "/experience.html",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/experience",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-qianwen.html",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-qianwen",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-yuanqi.html",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-yuanqi",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-lingda.html",
+      "destination": "/projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/project-lingda",
+      "destination": "/projects.html",
+      "permanent": true
     }
   ]
 }

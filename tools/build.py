@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
-"""Optional generator: regenerates the static HTML pages + js/articles-data.js from
-tools/articles/*.md and the templates in this file.  The site itself needs NO build step —
-you can also edit the generated .html files directly.   Usage:  python3 tools/build.py
+"""LEGACY — DO NOT RUN.
+
+This generator overwrites the live HTML with an old resume template (jobs, companies,
+and a phone number). The published site is edited directly. Running it would put
+employment history back onto the pages.
+
+It exits immediately unless JINYUAN_ALLOW_LEGACY_BUILD=1 is set on purpose.
 """
-import json, re, math, html, pathlib, urllib.parse
+import json, os, re, math, html, pathlib, urllib.parse, sys
+
+if os.environ.get("JINYUAN_ALLOW_LEGACY_BUILD") != "1":
+    sys.exit("tools/build.py is disabled: it would overwrite the site with the old resume template. Do not run it.")
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 E = html.escape
@@ -15,7 +22,7 @@ ROLE = "高级 AI 产品经理"
 EMAIL = "shuojinyuanli@gmail.com"        
 GITHUB = "JimLee-AIPM"
 GITHUB_URL = "https://github.com/JimLee-AIPM"
-WECHAT = "1372937074"
+WECHAT = "lsjy2316"
 DESC = "李硕金沅（JINYUAN）｜高级 AI 产品经理。专注于人工智能产品、用户体验与商业化创新，关注 AI 产品设计、智能体、生成式 AI、用户需求与技术落地。"
 CATEGORIES = ["AI 产品经理方法论", "生成式 AI 产品设计", "AI Agent 产品化", "大模型应用实践",
               "AI 与工作方式", "用户体验与人工智能", "AI 产品商业模式", "行业趋势与个人观察"]

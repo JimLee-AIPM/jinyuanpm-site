@@ -5,20 +5,20 @@
 (function () {
   if (window.__chat) return; window.__chat = 1;
   var doc = document, panel, log, form, input, sendBtn, sugg, opener = null, busy = false, msgs = [], ctrl = null;
-  var SUG = ['他做过哪些 AI 项目？', '在千问实习做了什么？', '他怎么看 Agent？'];
-  var WELCOME = '你好，我是金沅的 AI 分身，可以介绍他的经历、项目、文章观点和联系方式。想了解什么？';
+  var SUG = ['DeskTidy 是做什么的？', '他写过哪些文章？', '他怎么看 Agent？'];
+  var WELCOME = '你好，我是金沅的 AI 分身，可以介绍他的个人作品、文章观点和联系方式。想了解什么？';
 
   function el(tag, cls, html) { var e = doc.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
   function build() {
     panel = el('div', 'chat-panel'); panel.id = 'rt-chat';
     panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-modal', 'false'); panel.setAttribute('aria-labelledby', 'chat-title'); panel.hidden = true;
     panel.innerHTML =
-      '<div class="chat-head"><span class="chat-dot" aria-hidden="true"></span><div class="chat-ttl"><b id="chat-title">JinYuan 的 AI 分身</b><span>聊聊他的经历、项目和 AI 观点</span></div>' +
+      '<div class="chat-head"><span class="chat-dot" aria-hidden="true"></span><div class="chat-ttl"><b id="chat-title">JinYuan 的 AI 分身</b><span>聊聊他的作品、文章和 AI 观点</span></div>' +
       '<button type="button" class="chat-x" aria-label="关闭对话">×</button></div>' +
       '<div class="chat-log" aria-live="polite"></div>' +
       '<div class="chat-sugg" role="group" aria-label="推荐问题"></div>' +
       '<form class="chat-form" autocomplete="off"><label class="sr-only" for="chat-in">输入问题</label>' +
-      '<textarea id="chat-in" rows="1" maxlength="2000" placeholder="问问他的经历、项目或观点…"></textarea>' +
+      '<textarea id="chat-in" rows="1" maxlength="2000" placeholder="问问他的作品、文章或观点…"></textarea>' +
       '<button type="submit" class="chat-send" aria-label="发送"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></form>';
     doc.body.appendChild(panel);
     log = panel.querySelector('.chat-log'); form = panel.querySelector('.chat-form'); input = panel.querySelector('textarea');

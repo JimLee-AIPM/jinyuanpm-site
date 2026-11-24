@@ -3,7 +3,7 @@ Re-run after changing page content or articles:  python3 tools/build-knowledge.p
 import json, re, os
 from bs4 import BeautifulSoup
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGES=[('about.html','关于'),('experience.html','经历'),('projects.html','项目列表'),('project-qianwen.html','项目详情：千问 × 淘宝闪购 一句话点外卖'),('project-yuanqi.html','项目详情：腾讯元器'),('project-lingda.html','项目详情：灵搭'),
+PAGES=[('about.html','关于'),('projects.html','个人作品'),
 ('project-desktidy.html','项目详情：DeskTidy'),('tools.html','常用工具'),('contact.html','联系方式')]
 def clean(t): return re.sub(r'[ \t\u00a0]+',' ',re.sub(r'\n\s*\n+','\n',t)).strip()
 def page_text(fn):
@@ -41,7 +41,7 @@ def articles():
         out.append({'title':a['title'],'date':a['date'],'category':a['category'],'url':'https://jinyuanpm.com/article.html?slug='+a['slug'],
                     'summary':a['excerpt'],'sections':heads[:14],'key_text':body.strip()})
     return out
-K={'person':'李硕金沅（JinYuan），2027 届本科在读，求职 AI 产品经理实习生；有阿里巴巴千问、腾讯元器两段 AI 产品实习与灵搭导师合作项目经历。网站 https://jinyuanpm.com',
+K={'person':'李硕金沅（JinYuan），做个人 AI 作品与写作。公开个人作品是 macOS 菜单栏应用 DeskTidy。网站 https://jinyuanpm.com。',
    'pages':[{'page':t,'url':'https://jinyuanpm.com/'+f,'text':page_text(f)} for f,t in PAGES],
    'contact_links':contact_extra(),'articles':articles()}
 p=os.path.join(ROOT,'api/knowledge.json'); json.dump(K,open(p,'w',encoding='utf-8'),ensure_ascii=False,separators=(',',':'))

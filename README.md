@@ -12,7 +12,7 @@ python3 -m http.server 8000     # 然后打开 http://localhost:8000
 ## 页面
 | 文件 | 说明 |
 |---|---|
-| `index.html` | 首页：Hero / 关于我 / 项目经验 / 文章 / 观点 / 工作经历 / 联系 / 页脚 |
+| `index.html` | 首页：Hero（AIPM）与个人作品入口 |
 | `articles.html` | 文章列表：分类筛选、实时关键词搜索（支持 `?cat=分类名`、`?q=关键词`） |
 | `article.html?slug=…` | 文章详情模板（目录、阅读进度、代码复制、相关文章、分享、上下篇） |
 | `contact.html` | 独立联系页（与首页联系区块一致） |
@@ -26,17 +26,16 @@ js/article.js          文章详情渲染（读取 articles-data.js）
 js/markdown.js         轻量 Markdown 渲染器
 js/articles-data.js    文章数据（由 tools/articles/*.md 生成，也可手动编辑）
 assets/                蚀刻图（jpg + webp，均 < 400KB）
-tools/build.py         可选：重新生成 HTML 与 articles-data.js（python3 tools/build.py）
+tools/build.py         已停用。它会用旧履历模板覆盖页面，不要运行。
 tools/articles/*.md    示例文章源文件
 ```
 
 ## 需要替换的占位内容（请逐项检查）
 1. **邮箱**：当前按提供原样使用 `shuojinyuanli@gmail.com` —— **看起来不完整（可能缺少 `.com`）**，请确认后全局替换（`index.html`、`contact.html`、页脚、表单 `data-mailto`；或修改 `tools/build.py` 里的 `EMAIL` 后重新运行）。
 2. **公众号 / 社交媒体**：`[链接]`（首页联系区、`contact.html`、页脚；页脚中该链接目前是禁用占位）。
-3. **项目经验**（首页 4 个卡片）：全部为 `[示例]` 文案与 `[XX%]` 数字，需换成真实项目、职责、成果和数据。页面上有“示例内容，请替换”标注，替换后请删除。
-4. **工作经历**：`[公司名称]` `[职位]` `[YYYY.MM — YYYY.MM]` `[负责方向]` `[代表成果]`（2 条占位，可增删）。
-5. **个人简介 / 关于我**：文案基于已提供的信息概括撰写，请改成你自己的介绍。
-6. **示例文章**：5 篇文章均为示例（页面底部有“示例文章”标注），请改写或替换为原创内容；日期为 2026 年的示例日期。编辑 `tools/articles/*.md` 后运行 `python3 tools/build.py`，或直接修改 `js/articles-data.js` 与 `articles.html`。
+3. **个人作品**：公开作品是 DeskTidy。不要把任职经历写回页面。
+4. **个人简介 / 关于我**：保持个人介绍和个人优势，不要写公司、部门或任职经历。
+5. **文章**：直接改 `tools/articles/*.md` 与 `js/articles-data.js`、`articles.html`。不要运行 `tools/build.py`。
 7. **OG / 分享图与站点 URL**：`<meta property="og:image" content="assets/og.jpg">` 为相对路径；部署后请改成绝对地址（如 `https://你的域名/assets/og.jpg`），并按需补充 `og:url` 与 JSON-LD 中的 `url`。
 8. 页脚版权所有人（`李硕金沅 / JINYUAN`）与年份（自动取当前年份）。
 
